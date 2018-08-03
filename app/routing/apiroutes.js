@@ -1,9 +1,29 @@
+// Dependencies
+var express = require("express");
+var path = require("path");
+var people = require('../data/friends.js');
+
+// Express setup
+var router = express.Router();
+
 // api/friends route
-app.get("/api/friends", function(req, res) {
-    return res.json(friends);
-  });
+router.get("/api/friends", function (req, res) {
+  console.log('GET /api/friends called');
+  console.log('GET /api/friends returning: ' + people);
+  return res.json(people);
+});
 
 // Post route api/friends
-app.post("/api/friends", function(req, res) {
-   // NEED Compatibility logic
-  });
+router.post("/api/friends", function (req, res) {
+  console.log('POST /api/friends called');
+  people.push(req.body);
+
+  
+  // NEED Compatibility logic
+
+
+  console.log('POST /api/friends returning: ' + res);
+  return res;
+});
+
+module.exports = router;
