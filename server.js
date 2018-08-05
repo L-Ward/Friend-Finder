@@ -16,6 +16,4 @@ app.use('/', htmlRoutes);
 
 app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
-    // console.log(__dirname);
-    // console.log(path.join(__dirname, "/public/home.html"));
   });
