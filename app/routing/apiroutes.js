@@ -16,14 +16,27 @@ router.get("/api/friends", function (req, res) {
 // Post route api/friends
 router.post("/api/friends", function (req, res) {
   console.log('POST /api/friends called');
-  people.push(req.body);
-
+  var newFriend = (req.body);
+  var closestMatch;
+  
   
   // NEED Compatibility logic
-
-
-  console.log('POST /api/friends returning: ' + res);
-  return res;
+  var bestFriendScore = Math.max() //Should be higher than the highest possible comparison score
+  
+  people.forEach((index) => {
+    var comparisonScore = 0;
+    for (var i = 0; i < index.scores.length; i++) {
+      comparisonScore += Math.abs(newFriend.scores[i] - index.scores[i]);  
+    }
+    if (comparisonScore < bestFriendScore) {
+      closestMatch = index;
+      bestFriendScore = comparisonScore;
+    } 
+  });
+  
+  people.push(req.body);
+  console.log('POST /api/friends returning' + JSON.stringify(closestMatch));
+  res.json(closestMatch);
 });
 
 module.exports = router;

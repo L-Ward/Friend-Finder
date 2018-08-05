@@ -180,7 +180,7 @@
                     <option value="5">5 (Strongly Agree)</option>
                 </select>
             </div>
-    
+
             <!-- Submit Button -->
             <button type="submit" class="btn btn-primary btn-lg btn-block" id="submit">
                 <i class="fa fa-check-circle" aria-hidden="true"></i>
@@ -200,7 +200,7 @@
         <!-- Form submission -->
         <script>
             $('#submit').on('click', function (event) {
-                event.preventDefault;
+                event.preventDefault();
 
 
                 // NEED form validation
@@ -222,16 +222,15 @@
                         $('#q10').val().trim(),
                     ]
                 }
-                $.post('/api/friends', newPerson)
-                .then((result) => {
-                    console.log('its working')
+                $.post('/api/friends', newPerson,
+                    (result) => {
+                        console.log('its working')
+                        console.log(result);
+                        // NEED modals
 
 
-                    // NEED modals
-
-
-                })
-            })
+                    });
+            });
         </script>
 </body>
 
