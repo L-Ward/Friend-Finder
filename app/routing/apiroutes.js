@@ -21,7 +21,7 @@ router.post("/api/friends", function (req, res) {
   
   
   // NEED Compatibility logic
-  var bestFriendScore = Math.max() //Should be higher than the highest possible comparison score
+  var bestFriendScore = 50 //Should be higher than the highest possible comparison score
   
   people.forEach((index) => {
     var comparisonScore = 0;
