@@ -1,6 +1,5 @@
 // Dependencies
 var express = require("express");
-var path = require("path");
 var people = require('../data/friends.js');
 
 // Express setup
